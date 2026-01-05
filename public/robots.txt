@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://learngo.online/sitemap.xml
+
+

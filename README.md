@@ -20,15 +20,6 @@ npm run build
 npm run preview
 ```
 
-## Deploy (go online)
-This is a static Vite site (no backend needed).
-
-- **Vercel**: import the repo, build command `npm run build`, output `dist`.
-- **Netlify**: build `npm run build`, publish directory `dist`.
-- **GitHub Pages**:
-  - easiest path is a GitHub Action to publish `dist` (if you want this, tell me your repo name and desired URL and I’ll add it)
-  - note: Vite often needs a `base` setting for Pages (`/repo-name/`)
-
 ## How progress works
 - No accounts; progress is stored in `localStorage` under the key `gamecode.progress.v2`.
 - Stored fields:

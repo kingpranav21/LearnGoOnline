@@ -104,6 +104,7 @@ function App() {
             </div>
             <div className="panelBody">
               <CodeExplainer
+                key={activeTopic.id}
                 topic={activeTopic}
                 isRead={progress.readTopicIds.includes(activeTopic.id)}
                 onFinishedReading={() => {

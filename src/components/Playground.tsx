@@ -18,7 +18,14 @@ func main() {
 `
 
 export function Playground(props: PlaygroundProps) {
-  const [code, setCode] = useState(props.initialCode || DEFAULT_CODE)
+  if (!props.isOpen) return null
+  return <PlaygroundInner {...props} />
+}
+
+function PlaygroundInner(props: PlaygroundProps) {
+  const { onClose } = props
+
+  const [code, setCode] = useState(() => props.initialCode || DEFAULT_CODE)
   const [stdout, setStdout] = useState('Playground wired. WASM runner comes next.')
   const [stderr, setStderr] = useState('')
   const [isRunning, setIsRunning] = useState(false)
@@ -28,19 +35,11 @@ export function Playground(props: PlaygroundProps) {
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (!props.isOpen) return
-      if (e.key === 'Escape') props.onClose()
+      if (e.key === 'Escape') onClose()
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [props])
-
-  useEffect(() => {
-    if (!props.isOpen) return
-    setCode(props.initialCode || DEFAULT_CODE)
-  }, [props.initialCode, props.isOpen])
-
-  if (!props.isOpen) return null
+  }, [onClose])
 
   function run() {
     setIsRunning(true)

@@ -3716,16 +3716,16 @@ import (
 )
 
 func main() {
-  args := []string{\"echo\", \"-msg=hi\"}
+  args := []string{"echo", "-msg=hi"}
   cmd := args[0]
   switch cmd {
-  case \"echo\":
-    fs := flag.NewFlagSet(\"echo\", flag.ContinueOnError)
-    msg := fs.String(\"msg\", \"\", \"msg\")
+  case "echo":
+    fs := flag.NewFlagSet("echo", flag.ContinueOnError)
+    msg := fs.String("msg", "", "msg")
     _ = fs.Parse(args[1:])
-    fmt.Println(\"echo\", *msg)
+    fmt.Println("echo", *msg)
   default:
-    fmt.Println(\"unknown\")\n  }\n}\n`,
+    fmt.Println("unknown")\n  }\n}\n`,
       expectedStdout: 'echo hi\n',
     },
     docs: [{ title: 'Go by Example: Command-Line Subcommands', url: makeExternalUrl('command-line-subcommands') }],
@@ -3913,11 +3913,11 @@ import (
 func main() {
   h := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
     w.Header().Set("Content-Type", "application/json")
-    fmt.Fprint(w, \"{\\\"ok\\\":true}\")
+    fmt.Fprint(w, \`{"ok":true}\`)
   })
 
   rr := httptest.NewRecorder()
-  req := httptest.NewRequest(\"GET\", \"http://example/\", nil)
+  req := httptest.NewRequest("GET", "http://example/", nil)
   h.ServeHTTP(rr, req)
   fmt.Println(rr.Body.String())
 }
@@ -3978,10 +3978,10 @@ func main() {
   go func() {
     r := bufio.NewReader(server)
     line, _ := r.ReadString('\\n')
-    fmt.Fprint(server, \"echo:\"+line)
+    fmt.Fprint(server, "echo:"+line)
     server.Close()
   }()
-  fmt.Fprint(client, \"ping\\n\")
+  fmt.Fprint(client, "ping\n")
   out, _ := bufio.NewReader(client).ReadString('\\n')
   fmt.Print(out)
   client.Close()
@@ -4028,8 +4028,8 @@ import (
 )
 
 func main() {
-  ctx := context.WithValue(context.Background(), \"k\", \"v\")
-  fmt.Println(ctx.Value(\"k\"))
+  ctx := context.WithValue(context.Background(), "k", "v")
+  fmt.Println(ctx.Value("k"))
 }
 `,
       expectedStdout: 'v\n',
@@ -4072,7 +4072,7 @@ import (
 )
 
 func main() {
-  cmd := exec.Command(\"ls\", \"-la\")
+  cmd := exec.Command("ls", "-la")
   fmt.Println(len(cmd.Args))
 }
 `,

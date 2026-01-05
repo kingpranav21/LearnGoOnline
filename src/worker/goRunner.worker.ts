@@ -24,7 +24,6 @@ async function loadWasmExec() {
 
   // Fallback for module-like environments: fetch + eval.
   const jsText = await (await fetch('/wasm/wasm_exec.js')).text()
-  // eslint-disable-next-line no-eval
   ;(0, eval)(jsText)
 }
 
@@ -49,7 +48,6 @@ async function init() {
   const { instance } = await WebAssembly.instantiate(bytes, go.importObject)
 
   // Start the Go runtime (it will register global goRun).
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   go.run(instance)
 
   goRunFn = await waitForGoRun(4000)

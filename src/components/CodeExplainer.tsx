@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { Topic } from '../content/topics'
 
 type CodeExplainerProps = {
@@ -17,10 +17,6 @@ function getLines(code: string) {
 export function CodeExplainer(props: CodeExplainerProps) {
   const lines = useMemo(() => getLines(props.topic.code || ''), [props.topic.code])
   const [activeLine, setActiveLine] = useState(1)
-
-  useEffect(() => {
-    setActiveLine(1)
-  }, [props.topic.id])
 
   const note = props.topic.lineNotes?.[activeLine] || 'Blank/formatting line (keeps code readable).'
 

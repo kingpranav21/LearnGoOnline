@@ -1,0 +1,330 @@
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border2);
+  background: linear-gradient(90deg, rgba(110, 231, 255, 0.10), rgba(167, 139, 250, 0.08), rgba(244, 114, 182, 0.08));
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandTitle {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, var(--accentA), var(--accentB), var(--accentC));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brandSubtitle {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressPill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border2);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.progressBar {
+  width: 110px;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.progressFill {
+  height: 100%;
+  width: var(--progressPct, 0%);
+  background: linear-gradient(90deg, var(--accentA), var(--accentB), var(--accentC));
+  box-shadow: 0 0 18px rgba(167, 139, 250, 0.35);
+}
+
+.main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr 1.1fr;
+  gap: 12px;
+  padding: 12px;
+  min-height: 0;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  min-height: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.panelInner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panelHeader {
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+}
+
+.panelTitle {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.panelBody {
+  padding: 12px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.18);
+  color: inherit;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  box-shadow: none;
+}
+
+.btnPrimary {
+  border-color: rgba(110, 231, 255, 0.26);
+  background: linear-gradient(90deg, rgba(110, 231, 255, 0.20), rgba(167, 139, 250, 0.16), rgba(244, 114, 182, 0.16));
+}
+
+.topicBtn {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.badge--read {
+  border-color: rgba(110, 231, 255, 0.28);
+  box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.08);
+}
+
+.badge--done {
+  border-color: rgba(34, 197, 94, 0.35);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.10);
+}
+
+.badge--locked {
+  border-color: rgba(245, 158, 11, 0.30);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.10);
+}
+
+.badge--err {
+  border-color: rgba(251, 113, 133, 0.32);
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.10);
+}
+
+.codeCard {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.20));
+  overflow: auto;
+}
+
+.codeLine {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 10px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.codeLine:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.codeLineActive {
+  background: linear-gradient(90deg, rgba(110, 231, 255, 0.12), rgba(167, 139, 250, 0.10), rgba(244, 114, 182, 0.10));
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.10);
+}
+
+@media (max-width: 980px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Minimal overrides (product-like, less glow/gradient) */
+.topBar {
+  background: var(--bg0);
+  backdrop-filter: none;
+}
+
+.brandTitle {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--text);
+  letter-spacing: 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandLogo {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.panel {
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+.panelHeader {
+  background: none;
+}
+
+.panelTitle {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--border2);
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: none;
+  box-shadow: none;
+}
+
+.btnPrimary {
+  background: rgba(122, 162, 255, 0.12);
+  border-color: rgba(122, 162, 255, 0.35);
+}
+
+.progressFill {
+  background: var(--accentA);
+  box-shadow: none;
+}
+
+.badge {
+  background: transparent;
+  box-shadow: none !important;
+  border-color: var(--border2);
+  font-size: 11px;
+}
+
+.codeCard {
+  /* Slight tint so playground/output feel distinct from panels, but still minimal */
+  background: var(--codeSurface);
+  border-color: var(--codeBorder);
+}
+
+.codeLineActive {
+  background: rgba(122, 162, 255, 0.10);
+  box-shadow: none;
+}
+
+.codeEditor {
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid var(--editorBorder, var(--codeBorder));
+  background: var(--editorSurface, var(--codeSurface));
+  color: inherit;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.45;
+  outline: none;
+}
+
+.codeEditor:focus {
+  border-color: rgba(122, 162, 255, 0.35);
+}
